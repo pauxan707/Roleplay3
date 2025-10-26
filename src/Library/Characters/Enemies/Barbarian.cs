@@ -2,8 +2,11 @@
 
 public class Barbarian:Enemy
 {
-    public Barbarian()
+    public string Name { get; set; }
+    
+    public Barbarian(string name)
     {
+        this.Name= name;
         VP = 3;
     }
 }

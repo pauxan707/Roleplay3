@@ -2,8 +2,10 @@
 
 public class Bomber:Enemy
 {
-    public Bomber()
+    public string Name { get; set; }
+    public Bomber(string name)
     {
+        this.Name= name;
         VP = 1;
     }
 }

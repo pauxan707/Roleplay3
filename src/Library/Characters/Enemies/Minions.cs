@@ -2,8 +2,10 @@
 
 public class Minions:Enemy
 {
-    public Minions()
+    public string Name { get; set; }
+    public Minions(string name)
     {
+        this.Name= name;
         VP = 2;
     }
 }

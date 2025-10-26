@@ -2,8 +2,10 @@
 
 public class Ogre:Enemy
 {
-    public Ogre()
+    public string Name { get; set; }
+    public Ogre(string name)
     {
+        this.Name= name;
         VP = 1;
     }
 }

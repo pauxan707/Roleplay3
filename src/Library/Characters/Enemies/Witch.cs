@@ -2,8 +2,10 @@
 
 public class Witch:Enemy
 {
-    public Witch()
+    public string Name { get; set; }
+    public Witch(string name)
     {
+        this.Name= name;
         VP = 2;
     }
 }
