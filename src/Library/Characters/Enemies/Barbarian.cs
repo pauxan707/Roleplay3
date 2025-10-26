@@ -2,7 +2,7 @@
 
 public class Barbarian:Enemy
 {
-    Barbarian()
+    public Barbarian()
     {
         VP = 3;
     }

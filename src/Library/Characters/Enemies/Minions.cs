@@ -2,7 +2,7 @@
 
 public class Minions:Enemy
 {
-    Minions()
+    public Minions()
     {
         VP = 2;
     }

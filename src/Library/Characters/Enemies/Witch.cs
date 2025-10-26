@@ -2,7 +2,7 @@
 
 public class Witch:Enemy
 {
-    Witch()
+    public Witch()
     {
         VP = 2;
     }

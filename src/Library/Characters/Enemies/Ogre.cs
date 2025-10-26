@@ -2,7 +2,7 @@
 
 public class Ogre:Enemy
 {
-    Ogre()
+    public Ogre()
     {
         VP = 1;
     }

@@ -2,7 +2,7 @@
 
 public class Bomber:Enemy
 {
-    Bomber()
+    public Bomber()
     {
         VP = 1;
     }

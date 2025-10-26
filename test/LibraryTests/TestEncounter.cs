@@ -1,5 +1,7 @@
+using Library;
 using NUnit.Framework;
 using Ucu.Poo.RoleplayGame;
+using Ucu.Poo.RoleplayGame.Enemies;
 
 namespace TestLibrary;
 
