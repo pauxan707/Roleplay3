@@ -1,22 +1,11 @@
-using System.Collections.Generic;
 namespace Ucu.Poo.RoleplayGame;
 
-public class Knight: ICharacter
+public class Character
 {
-    private int health = 100;
-
+    string Name { get; set; }
+    
     private List<IItem> items = new List<IItem>();
-
-    public Knight(string name)
-    {
-        this.Name = name;
-
-        this.AddItem(new Sword());
-        this.AddItem(new Armor());
-        this.AddItem(new Shield());
-    }
-
-    public string Name { get; set; }
+    private int health = 100;
 
     public int AttackValue
     {
@@ -61,20 +50,7 @@ public class Knight: ICharacter
             this.health = value < 0 ? 0 : value;
         }
     }
-
-    public void ReceiveAttack(int power)
-    {
-        if (this.DefenseValue < power)
-        {
-            this.Health -= power - this.DefenseValue;
-        }
-    }
-
-    public void Cure()
-    {
-        this.Health = 100;
-    }
-
+    
     public void AddItem(IItem item)
     {
         this.items.Add(item);
@@ -83,5 +59,18 @@ public class Knight: ICharacter
     public void RemoveItem(IItem item)
     {
         this.items.Remove(item);
+    }
+
+    public void Cure()
+    {
+        this.Health = 100;
+    }
+
+    public void ReceiveAttack(int power)
+    {
+        if (this.DefenseValue < power)
+        {
+            this.Health -= power - this.DefenseValue;
+        }
     }
 }

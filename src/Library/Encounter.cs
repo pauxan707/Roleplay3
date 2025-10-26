@@ -1,4 +1,5 @@
-using System.Linq; //usamos Linq para facilitar chequeos dentro de listas (Any())
+using System.Linq;
+using Ucu.Poo.RoleplayGame; //usamos Linq para facilitar chequeos dentro de listas (Any())
 
 namespace Library;
 

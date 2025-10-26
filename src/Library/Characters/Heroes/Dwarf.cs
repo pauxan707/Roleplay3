@@ -1,17 +1,17 @@
 using System.Collections.Generic;
 namespace Ucu.Poo.RoleplayGame;
 
-public class Archer: ICharacter
+public class Dwarf: Hero
 {
     private int health = 100;
 
     private List<IItem> items = new List<IItem>();
 
-    public Archer(string name)
+    public Dwarf(string name)
     {
         this.Name = name;
 
-        this.AddItem(new Bow());
+        this.AddItem(new Axe());
         this.AddItem(new Helmet());
     }
 
