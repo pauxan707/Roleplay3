@@ -66,7 +66,7 @@ public class Character
         this.Health = 100;
     }
 
-    public void ReceiveAttack(int power)
+    public void RecieveAttack(int power)
     {
         if (this.DefenseValue < power)
         {

@@ -21,9 +21,9 @@ public class Encounter //se encarga de toda la lógica de combate, de esta maner
         
         foreach (Enemy enemy in enemies) 
         {
-            if (!_heroesList.Contains(enemy))
+            if (!_enemyList.Contains(enemy))
             {
-                _heroesList.Add(enemy);
+                _enemyList.Add(enemy);
             }
         }
     }
