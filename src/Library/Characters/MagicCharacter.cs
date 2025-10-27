@@ -1,6 +1,7 @@
 namespace Ucu.Poo.RoleplayGame;
 
-public class MagicCharacter: Character
+public interface IMagicCharacter
 {
-
+    public List<IItem> Items { get; }
+    public List<IMagicalItem> MagicalItems { get; }
 }

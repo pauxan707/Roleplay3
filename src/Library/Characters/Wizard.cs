@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 namespace Ucu.Poo.RoleplayGame;
 
-public class Wizard: MagicCharacter
+public class Wizard: Hero, IMagicCharacter
 {
     private int health = 100;
 
-    private List<IItem> items = new List<IItem>();
+    public List<IItem> Items { get; } = new List<IItem>();
 
-    private List<IMagicalItem> magicalItems = new List<IMagicalItem>();
+    public List<IMagicalItem> MagicalItems { get; } = new List<IMagicalItem>();
 
     public Wizard(string name)
     {
@@ -23,14 +23,14 @@ public class Wizard: MagicCharacter
         get
         {
             int value = 0;
-            foreach (IItem item in this.items)
+            foreach (IItem item in this.Items)
             {
                 if (item is IAttackItem)
                 {
                     value += (item as IAttackItem).AttackValue;
                 }
             }
-            foreach (IMagicalItem item in this.magicalItems)
+            foreach (IMagicalItem item in this.MagicalItems)
             {
                 if (item is IMagicalAttackItem)
                 {
@@ -46,14 +46,14 @@ public class Wizard: MagicCharacter
         get
         {
             int value = 0;
-            foreach (IItem item in this.items)
+            foreach (IItem item in this.Items)
             {
                 if (item is IDefenseItem)
                 {
                     value += (item as IDefenseItem).DefenseValue;
                 }
             }
-            foreach (IMagicalItem item in this.magicalItems)
+            foreach (IMagicalItem item in this.MagicalItems)
             {
                 if (item is IMagicalDefenseItem)
                 {
@@ -91,22 +91,22 @@ public class Wizard: MagicCharacter
 
     public void AddItem(IItem item)
     {
-        this.items.Add(item);
+        this.Items.Add(item);
     }
 
     public void RemoveItem(IItem item)
     {
-        this.items.Remove(item);
+        this.Items.Remove(item);
     }
 
     public void AddItem(IMagicalItem item)
     {
-        this.magicalItems.Add(item);
+        this.MagicalItems.Add(item);
     }
 
     public void RemoveItem(IMagicalItem item)
     {
-        this.magicalItems.Remove(item);
+        this.MagicalItems.Remove(item);
     }
 
 }

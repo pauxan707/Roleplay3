@@ -79,7 +79,7 @@ public class TestEncounter
         _encounter1.AddHero(_archer1);
         _ogre1.ReceiveAttack(124); //Hacemos que el ogro quede a un golpe
         _encounter1.DoEncounter(); //El ogro es derrotado
-        Assert.That(_archer1.CollectedVp, Is.EqualTo(4)); //Los VP deberian ser 4
+        Assert.That(_archer1.VP, Is.EqualTo(4)); //Los VP deberian ser 4
     }
 
   [Test]
@@ -88,7 +88,7 @@ public class TestEncounter
         _encounter1.AddEnemy(_ogre1);
         _encounter1.AddHero(_archer1);
         _archer1.ReceiveAttack(55);
-        _archer1.CollectedVp = 5;
+        _archer1.VP = 5;
         _encounter1.DoEncounter(); //El arquero se cura por completo con 5 VP
         Assert.That(_archer1.Health, Is.EqualTo(100));
     }

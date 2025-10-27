@@ -6,8 +6,8 @@ namespace Library;
 //se le pueden cargar listas de personajes al inicializarse, o no. Y luego se pueden agregar y quitar (se agrega al final, se quita el que se especifique) (podrían agregarse en una posición específica implementando un método distinto)
 public class Encounter //se encarga de toda la lógica de combate, de esta manera cumpliendo con SRP. Cumple con Expert, ya que es la única clase con el conocimeinto de todos los combatientes.
 {
-    private List<Hero> _heroesList = new List<Hero>();
-    private List<Enemy> _enemyList = new List<Enemy>();
+    public List<Hero> _heroesList { get; private set; } = new List<Hero>();
+    public List<Enemy> _enemyList { get; private set; } = new List<Enemy>();
     
     public Encounter(List<Hero> heroes, List<Enemy> enemies)
     {
@@ -33,7 +33,7 @@ public class Encounter //se encarga de toda la lógica de combate, de esta maner
         ;
     }
 
-    public void addHero(Hero hero)
+    public void AddHero(Hero hero)
     {
         if (!_heroesList.Contains(hero)) //validación para duplicados
         {
@@ -44,8 +44,13 @@ public class Encounter //se encarga de toda la lógica de combate, de esta maner
             Console.WriteLine("" + hero + "ya se encuentra en el encuentro!");
         }
     }
+    
+    public void DeleteHero(Hero hero)
+    {
+        _heroesList.Remove(hero);
+    }
      
-    public void addEnemy(Enemy enemy)
+    public void AddEnemy(Enemy enemy)
     {
         if (!_enemyList.Contains(enemy)) //validación para duplicados
         {
@@ -57,7 +62,12 @@ public class Encounter //se encarga de toda la lógica de combate, de esta maner
         }
     }    
     
-    private void DoEncounter()
+    public void DeleteEnemy(Enemy enemy)
+    {
+        _enemyList.Remove(enemy);
+    }
+    
+    public void DoEncounter()
     {
         while (_heroesList.Any(hero => hero.Health > 0) && _enemyList.Any(enemy => enemy.Health > 0)) //solo continua la pelea si ambos bandos tienen combatientes vivos
         {
@@ -85,7 +95,7 @@ public class Encounter //se encarga de toda la lógica de combate, de esta maner
                     heroIndex = 0;
                 }
             
-                aliveHeroes[heroIndex].RecieveAttack(enemy.AttackValue);
+                aliveHeroes[heroIndex].ReceiveAttack(enemy.AttackValue);
                 
                 heroIndex++;
             }
@@ -108,7 +118,7 @@ public class Encounter //se encarga de toda la lógica de combate, de esta maner
                 {
                     if (enemy.Health <= 0) continue;
                 
-                    enemy.RecieveAttack(hero.AttackValue);
+                    enemy.ReceiveAttack(hero.AttackValue);
 
                     if (enemy.Health <= 0) //si mató al enemigo, absorbe sus VP
                     {

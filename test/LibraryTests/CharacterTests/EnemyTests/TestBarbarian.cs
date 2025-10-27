@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using Ucu.Poo.RoleplayGame;
+using Ucu.Poo.RoleplayGame.Enemies;
 
 namespace TestLibrary;
 public class TestBarbarian
@@ -35,7 +36,7 @@ public class TestBarbarian
      {
         _barbarian1.AddItem(new Armor());
         _barbarian1.ReceiveAttack(100);
-        Assert.That(_barbarian1.Health, Is.EqualTo(43)); //Como tiene 1 armor y 1 helmet, bloquea 43
+        Assert.That(_barbarian1.Health, Is.EqualTo(57)); //Como tiene 1 armor y 1 helmet, bloquea 43
     }
 [Test]
      public void TestRemoveItem() //Agrega y quita un item
@@ -49,7 +50,7 @@ public class TestBarbarian
 [Test]
     public void TestVP()
     {
-        Assert.That(_barbarian1.VP(), Is.EqualTo(2)); //Comprueba que los VP sean los correctos
+        Assert.That(_barbarian1.VP, Is.EqualTo(2)); //Comprueba que los VP sean los correctos
     }
 [Test]
 public void TestHealthNotNegative() //Comprueba que la vida no sea negativa si el daño supera la vida

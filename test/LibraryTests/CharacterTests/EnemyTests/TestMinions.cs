@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using Ucu.Poo.RoleplayGame;
+using Ucu.Poo.RoleplayGame.Enemies;
 
 namespace TestLibrary;
 public class TestMinions
@@ -49,7 +50,7 @@ public class TestMinions
 [Test]
      public void TestVP() 
     {
-        Assert.That(_minions1.VP(), Is.EqualTo(2)); //Comprueba que los VP sean los correctos
+        Assert.That(_minions1.VP, Is.EqualTo(2)); //Comprueba que los VP sean los correctos
     }
 [Test]
 public void TestHealthNotNegative() //Comprueba que la vida no sea negativa si el daño supera la vida

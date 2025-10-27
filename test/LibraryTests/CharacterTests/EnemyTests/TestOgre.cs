@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using Ucu.Poo.RoleplayGame;
+using Ucu.Poo.RoleplayGame.Enemies;
 
 namespace TestLibrary;
 public class TestOgre
@@ -49,7 +50,7 @@ public class TestOgre
 [Test]
      public void TestVP() 
     {
-        Assert.That(_ogre1.VP(), Is.EqualTo(4)); //Comprueba que los VP sean los correctos
+        Assert.That(_ogre1.VP, Is.EqualTo(4)); //Comprueba que los VP sean los correctos
     }
 [Test]
 public void TestHealthNotNegative() //Comprueba que la vida no sea negativa si el daño supera la vida
