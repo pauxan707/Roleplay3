@@ -17,10 +17,10 @@ public class TestBarbarian
     }
     
     [Test]
-    public void TestReceiveAttack() //Recive daño
+    public void TestReceiveAttack() //Recibe daño
     {
         _barbarian1.ReceiveAttack(55);
-        Assert.That(_barbarian1.Health, Is.EqualTo(63)); //toma 37 de daño porque el helmet reduce 18
+        Assert.That(_barbarian1.Health, Is.EqualTo(63)); //Ataque de 55, helmet bloquea 18, daño es de 37. Vida 100 - 37 = 63
     }
     
     [Test]
@@ -36,7 +36,7 @@ public class TestBarbarian
      {
         _barbarian1.AddItem(new Armor());
         _barbarian1.ReceiveAttack(100);
-        Assert.That(_barbarian1.Health, Is.EqualTo(57)); //Como tiene 1 armor y 1 helmet, bloquea 43
+        Assert.That(_barbarian1.Health, Is.EqualTo(43)); // helmet + armor bloquean 43, daño 57. Vida 100 - 57 = 43
     }
 [Test]
      public void TestRemoveItem() //Agrega y quita un item

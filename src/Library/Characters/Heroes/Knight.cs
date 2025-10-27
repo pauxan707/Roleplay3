@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 namespace Ucu.Poo.RoleplayGame;
 
-public class Knight: Hero
+public class Knight : Hero
 {
     private int health = 100;
 

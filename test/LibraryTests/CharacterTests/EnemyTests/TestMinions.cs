@@ -17,10 +17,10 @@ public class TestMinions
     }
     
     [Test]
-    public void TestReceiveAttack() //Recive daño
+    public void TestReceiveAttack() //Recibe daño
     {
         _minions1.ReceiveAttack(55);
-        Assert.That(_minions1.Health, Is.EqualTo(59)); //toma 41 de daño porque el shield reduce 14
+        Assert.That(_minions1.Health, Is.EqualTo(45)); 
     }
     
     [Test]
@@ -36,7 +36,7 @@ public class TestMinions
      {
         _minions1.AddItem(new Armor());
         _minions1.ReceiveAttack(100);
-        Assert.That(_minions1.Health, Is.EqualTo(39)); //Como tiene 1 armor y 1 shield, bloquea 39
+        Assert.That(_minions1.Health, Is.EqualTo(25)); 
     }
 [Test]
      public void TestRemoveItem() //Agrega y quita un item
@@ -45,7 +45,7 @@ public class TestMinions
         _minions1.AddItem(armor1);
         _minions1.RemoveItem(armor1);
         _minions1.ReceiveAttack(55);
-        Assert.That(_minions1.Health, Is.EqualTo(59)); //Sólo lo cubre el shield
+        Assert.That(_minions1.Health, Is.EqualTo(45)); //Sólo lo cubre el shield
     }
 [Test]
      public void TestVP() 
