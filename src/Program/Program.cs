@@ -1,29 +1,46 @@
 ﻿using System;
-
-namespace Ucu.Poo.RoleplayGame.Program;
+using System.Collections.Generic;
+using Ucu.Poo.RoleplayGame;
+using Ucu.Poo.RoleplayGame.Enemies;
+using Library;
 
 class Program
 {
     static void Main(string[] args)
     {
-        SpellsBook book = new SpellsBook();
-        book.AddSpell(new SpellOne());
-        book.AddSpell(new SpellOne());
+        // Crear héroes con sus nombres y stats iniciales
+        var hero1 = new Hero();             
+        var wizard = new Wizard("Gandalf"); 
 
-        Wizard gandalf = new Wizard("Gandalf");
-        gandalf.AddItem(book);
+        var heroes = new List<Hero> { hero1, wizard };
 
-        Dwarf gimli = new Dwarf("Gimli");
+        // Crear enemigos con sus nombres y stats iniciales
+        var barbarian = new Barbarian("Barbarian");
+        var ogre = new Ogre("Ogre");
+        var witch = new Witch("Witch");
 
-        Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
-        Console.WriteLine($"Gandalf attacks Gimli with ⚔️ {gandalf.AttackValue}");
+        var enemies = new List<Enemy> { barbarian, ogre, witch };
 
-        gimli.ReceiveAttack(gandalf.AttackValue);
+        // Inicializar el encuentro con listas de héroes y enemigos
+        var encounter = new Encounter(heroes, enemies);
 
-        Console.WriteLine($"Gimli has ❤️ {gimli.Health}");
+        // Ejecutar el encuentro y mostrar progreso
+        Console.WriteLine("== Comienza el Encuentro ==");
+        encounter.DoEncounter();
+        Console.WriteLine("== Fin del Encuentro ==");
 
-        gimli.Cure();
+        // Imprimir el estado final de los héroes tras el combate
+        Console.WriteLine("\nEstado final de los héroes:");
+        foreach (var hero in heroes)
+        {
+            Console.WriteLine($"{hero.GetType().Name} - HP: {hero.Health}, VP: {hero.VP}");
+        }
 
-        Console.WriteLine($"Someone cured Gimli. Gimli now has ❤️ {gimli.Health}");
+        // Imprimir el estado final de los enemigos tras el combate
+        Console.WriteLine("\nEstado final de los enemigos:");
+        foreach (var enemy in enemies)
+        {
+            Console.WriteLine($"{enemy.GetType().Name} - HP: {enemy.Health}, VP: {enemy.VP}");
+        }
     }
 }
