@@ -131,6 +131,10 @@ public class Encounter //se encarga de toda la lógica de combate, de esta maner
                         }
                     }
                 }
+                if (!_enemyList.Any(enemy => enemy.Health > 0))
+                {
+                    break; //evita bucle infinito de heroe atacando enemigos muertos
+                }
             }
         }
     

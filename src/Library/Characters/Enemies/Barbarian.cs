@@ -7,6 +7,6 @@ public class Barbarian:Enemy
     public Barbarian(string name)
     {
         this.Name= name;
-        VP = 3;
+        VP = 2;
     }
 }
