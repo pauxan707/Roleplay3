@@ -2,7 +2,7 @@ namespace Ucu.Poo.RoleplayGame;
 
 public class Character
 {
-    string Name { get; set; }
+    public string Name { get; set; }
     
     private List<IItem> items = new List<IItem>();
     private int health = 100;

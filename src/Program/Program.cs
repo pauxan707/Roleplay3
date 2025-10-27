@@ -4,15 +4,15 @@ using Ucu.Poo.RoleplayGame;
 using Ucu.Poo.RoleplayGame.Enemies;
 using Library;
 
+namespace program;
 class Program
 {
     static void Main(string[] args)
     {
         // Crear héroes con sus nombres y stats iniciales
-        var hero1 = new Hero();             
-        var wizard = new Wizard("Gandalf"); 
+        var archer = new Archer("juan"); 
 
-        var heroes = new List<Hero> { hero1, wizard };
+        var heroes = new List<Hero> { archer };
 
         // Crear enemigos con sus nombres y stats iniciales
         var barbarian = new Barbarian("Barbarian");
